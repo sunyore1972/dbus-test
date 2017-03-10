@@ -18,7 +18,8 @@ class ForwardMessage(dbus.service.Object):
     def __init__(self, bus=None, path=None):
         super(ForwardMessage, self).__init__(bus, path)
     
-    @dbus.service.method(dbus_interface=CALLER_PUBLIC_NAME, in_signature='s')
+    #@dbus.service.method(dbus_interface=CALLER_PUBLIC_NAME, in_signature='s') #match csender.c 1 
+    @dbus.service.method(dbus_interface=PUBLIC_NAME, in_signature='s')      #match csender.c 2
     def receive_data(self, strmsg):
         print(">>>>>>>>>>>>>>>>>>>>>>>>>>>> receive data")
         print(strmsg)

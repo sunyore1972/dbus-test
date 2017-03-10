@@ -71,8 +71,8 @@ int method_call_without_reply(DBusConnection * connection,
     dbus_uint32_t  serial =0;
 
     dbus_error_init(&err);
-    msg = dbus_message_new_method_call(D_TARGET_NAME, D_TARGET_PATH, D_INTERFACE_NAME, func);
-    //msg = dbus_message_new_method_call(D_TARGET_NAME, D_TARGET_PATH, D_TARGET_IFACE, func);
+    //msg = dbus_message_new_method_call(D_TARGET_NAME, D_TARGET_PATH, D_INTERFACE_NAME, func); //1
+    msg = dbus_message_new_method_call(D_TARGET_NAME, D_TARGET_PATH, D_TARGET_IFACE, func); //2
     if(msg == NULL){
         printf("Message is NULL\n");
         return -1;
